@@ -1,7 +1,6 @@
 ﻿using AuthenticatedWebAPI.Models;
 using AuthenticatedWebAPI.Service;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -14,13 +13,35 @@ namespace AuthenticatedWebAPI.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
-        private readonly IUserService _userService; 
+        private readonly IUserService _userService;
+        private readonly IEmailService _emailService;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IUserService userService)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IUserService userService,
+            IEmailService emailService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _userService = userService;
+            _emailService = emailService;
+        }
+
+        [HttpPost("SendEMail")]
+        public async Task<ActionResult> SendMail()
+        {
+            string message = "mail send";
+            try
+            {
+                UserEmailOptions options = new()
+                {
+                    ToEmails = new List<string>() { "singhkartikey45@gmail.com" }
+                };
+                await _emailService.SendTestEmail(options).ConfigureAwait(false);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest("something went wrong, please try again." + ex.Message);
+            }
+            return Ok(new { message = message });
         }
 
         [HttpPost("register")]
@@ -42,6 +63,7 @@ namespace AuthenticatedWebAPI.Controllers
                 {
                     return BadRequest(result);
                 }
+
                 message = "registered successfull.";
             }
             catch (Exception ex)

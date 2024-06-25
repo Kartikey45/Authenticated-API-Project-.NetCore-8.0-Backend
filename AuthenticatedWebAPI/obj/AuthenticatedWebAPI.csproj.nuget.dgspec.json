@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\demo_practices\\Backend\\AuthenticatedAppUsingIdentity\\AuthenticatedWebAPI\\AuthenticatedWebAPI.csproj": {}
+    "D:\\demo_practices\\Backend\\Authenticated-API-Project-.NetCore-8.0-Backend\\AuthenticatedWebAPI\\AuthenticatedWebAPI.csproj": {}
   },
   "projects": {
-    "D:\\demo_practices\\Backend\\AuthenticatedAppUsingIdentity\\AuthenticatedWebAPI\\AuthenticatedWebAPI.csproj": {
+    "D:\\demo_practices\\Backend\\Authenticated-API-Project-.NetCore-8.0-Backend\\AuthenticatedWebAPI\\AuthenticatedWebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\demo_practices\\Backend\\AuthenticatedAppUsingIdentity\\AuthenticatedWebAPI\\AuthenticatedWebAPI.csproj",
+        "projectUniqueName": "D:\\demo_practices\\Backend\\Authenticated-API-Project-.NetCore-8.0-Backend\\AuthenticatedWebAPI\\AuthenticatedWebAPI.csproj",
         "projectName": "AuthenticatedWebAPI",
-        "projectPath": "D:\\demo_practices\\Backend\\AuthenticatedAppUsingIdentity\\AuthenticatedWebAPI\\AuthenticatedWebAPI.csproj",
+        "projectPath": "D:\\demo_practices\\Backend\\Authenticated-API-Project-.NetCore-8.0-Backend\\AuthenticatedWebAPI\\AuthenticatedWebAPI.csproj",
         "packagesPath": "C:\\Users\\PODTECH\\.nuget\\packages\\",
-        "outputPath": "D:\\demo_practices\\Backend\\AuthenticatedAppUsingIdentity\\AuthenticatedWebAPI\\obj\\",
+        "outputPath": "D:\\demo_practices\\Backend\\Authenticated-API-Project-.NetCore-8.0-Backend\\AuthenticatedWebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\PODTECH\\AppData\\Roaming\\NuGet\\NuGet.Config",

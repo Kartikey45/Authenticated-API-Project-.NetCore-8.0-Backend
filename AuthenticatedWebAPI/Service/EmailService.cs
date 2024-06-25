@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AuthenticatedWebAPI.Service
 {
-    public class EmailService
+    public class EmailService : IEmailService
     {
         private const string templatePath = @"EmailTemplate/{0}.html";
         private readonly SMTPConfigModel _smtpConfigModel;
@@ -14,6 +14,13 @@ namespace AuthenticatedWebAPI.Service
         public EmailService(IOptions<SMTPConfigModel> smtpConfig)
         {
             _smtpConfigModel = smtpConfig.Value;
+        }
+
+        public async Task SendTestEmail(UserEmailOptions userEmailOptions)
+        {
+            userEmailOptions.Subject = "This is test email subject from Web App";
+            userEmailOptions.Body = GetEmailBody("TestEmail");
+            await SendEmail(userEmailOptions).ConfigureAwait(false);
         }
 
         private async Task SendEmail(UserEmailOptions userEmailOptions)
@@ -24,6 +31,29 @@ namespace AuthenticatedWebAPI.Service
                 Body = userEmailOptions.Body,
                 From = new MailAddress(_smtpConfigModel.SenderAddress, _smtpConfigModel.SenderDisplayName),
                 IsBodyHtml = _smtpConfigModel.IsBodyHtml
+            };
+            foreach (var toEmail in userEmailOptions.ToEmails)
+            {
+                mail.To.Add(toEmail);
+            }
+
+            var client = new SmtpClient(_smtpConfigModel.Host, _smtpConfigModel.Port)
+            {
+                Credentials = new NetworkCredential(_smtpConfigModel.UserName, _smtpConfigModel.Password),
+                EnableSsl = true,
+            };
+            await client.SendMailAsync(mail);
+        }
+
+        /*private async Task SendEmail(UserEmailOptions userEmailOptions)
+        {
+            MailMessage mail = new MailMessage()
+            {
+                Subject = userEmailOptions.Subject,
+                Body = userEmailOptions.Body,
+                From = new MailAddress(_smtpConfigModel.SenderAddress, _smtpConfigModel.SenderDisplayName),
+                IsBodyHtml = _smtpConfigModel.IsBodyHtml
+                
             };
 
             foreach (var toEmail in userEmailOptions.ToEmails)
@@ -42,8 +72,9 @@ namespace AuthenticatedWebAPI.Service
             mail.BodyEncoding = Encoding.Default;
             await smtpClient.SendMailAsync(mail);
         }
-
-        private string GetEmailBody(string templateName) {
+*/
+        private string GetEmailBody(string templateName)
+        {
             var body = File.ReadAllText(string.Format(templatePath, templateName));
             return body;
         }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AuthenticatedWebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+96898d1d7b8f563814c4b56ea0522ee3717682e6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5e9bf541ba2f5ecb62b05f314ecfdf717e2072a")]
 [assembly: System.Reflection.AssemblyProductAttribute("AuthenticatedWebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AuthenticatedWebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

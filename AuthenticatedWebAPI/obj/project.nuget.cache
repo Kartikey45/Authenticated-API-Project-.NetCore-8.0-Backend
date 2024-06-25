@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "O5sLU2Q3mNw=",
+  "dgSpecHash": "nB6YOUCWms0=",
   "success": true,
-  "projectFilePath": "D:\\demo_practices\\Backend\\AuthenticatedAppUsingIdentity\\AuthenticatedWebAPI\\AuthenticatedWebAPI.csproj",
+  "projectFilePath": "D:\\demo_practices\\Backend\\Authenticated-API-Project-.NetCore-8.0-Backend\\AuthenticatedWebAPI\\AuthenticatedWebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PODTECH\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\PODTECH\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
